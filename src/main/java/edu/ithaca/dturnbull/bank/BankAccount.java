@@ -56,6 +56,11 @@ public class BankAccount {
 
     }
 
+    //post, money from account being applied to gets transferred to other account
+    public void transfer(double amount, BankAccount other) throws InsufficientFundsException{
+
+    }
+
     //returns true if correct, returns false if negative or bigger than 2 decimal places
     public static boolean isAmountValid(double amount){
         if(amount<0){
