@@ -48,6 +48,11 @@ public class BankAccount {
 
     // post adds the amount being wished to be deposited into the instance
     public void deposit (double amount)throws InsufficientFundsException{
+        boolean tester=isAmountValid(amount);
+        if(tester==false){
+            throw new InsufficientFundsException("Invalid amount");
+        }
+        balance=balance+amount;
 
     }
 
