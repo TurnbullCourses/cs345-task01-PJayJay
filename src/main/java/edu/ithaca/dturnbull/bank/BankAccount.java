@@ -40,7 +40,21 @@ public class BankAccount {
 
     //returns true if correct, returns false if negative or bigger than 2 decimal places
     public static boolean isAmountValid(double amount){
-        return false;
+        if(amount<0){
+            return false;
+        }
+        String stringAmount=""+amount;
+        String[] seperated=stringAmount.split("\\.");
+        if(seperated.length<=1){
+            return true;
+        }
+        else{
+            if(seperated[1].length()>2){
+                return false;
+            }
+            return true;
+        }
+        
     }
 
 
