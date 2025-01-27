@@ -38,6 +38,11 @@ public class BankAccount {
         }
     }
 
+    //returns true if correct, returns false if negative or bigger than 2 decimal places
+    public static boolean isAmountValid(double amount){
+        return false;
+    }
+
 
     public static boolean isEmailValid(String email){
         if (email.indexOf('@') == -1){
