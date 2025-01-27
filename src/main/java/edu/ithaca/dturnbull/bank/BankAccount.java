@@ -46,6 +46,11 @@ public class BankAccount {
         }
     }
 
+    // post adds the amount being wished to be deposited into the instance
+    public void deposit (double amount)throws InsufficientFundsException{
+
+    }
+
     //returns true if correct, returns false if negative or bigger than 2 decimal places
     public static boolean isAmountValid(double amount){
         if(amount<0){
