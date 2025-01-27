@@ -61,6 +61,26 @@ class BankAccountTest {
     }
 
     @Test
+    void transferTest() throws InsufficientFundsException{
+        BankAccount bankAccount = new BankAccount("a@b.com", 200);
+        BankAccount bankAccount2 = new BankAccount("a@b.com", 200);
+
+        bankAccount.transfer(100,bankAccount2);
+
+        assertEquals(100,bankAccount.getBalance());
+        assertEquals(300,bankAccount2.getBalance());
+
+        bankAccount2.transfer(.01,bankAccount);
+
+        assertEquals(299.99,bankAccount2.getBalance());
+        assertEquals(100.01,bankAccount.getBalance());
+
+        assertThrows(InsufficientFundsException.class, () -> bankAccount.transfer(900,bankAccount2));
+        assertThrows(InsufficientFundsException.class, () -> bankAccount.transfer(-85,bankAccount2));
+        assertThrows(InsufficientFundsException.class, () -> bankAccount.transfer(.0001,bankAccount2));
+    }
+
+    @Test
     void isEmailValidTest(){
         assertTrue(BankAccount.isEmailValid( "a@b.com"));   // valid email address
         assertFalse( BankAccount.isEmailValid(""));         // empty string
