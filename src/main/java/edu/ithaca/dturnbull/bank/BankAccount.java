@@ -58,6 +58,15 @@ public class BankAccount {
 
     //post, money from account being applied to gets transferred to other account
     public void transfer(double amount, BankAccount other) throws InsufficientFundsException{
+        boolean tester=isAmountValid(amount);
+        if(tester==false){
+            throw new InsufficientFundsException("Incorrect amount");
+        }
+        if(amount>balance){
+            throw new InsufficientFundsException("Not enough funds");
+        }
+        this.withdraw(amount);
+        other.deposit(amount);
 
     }
 
